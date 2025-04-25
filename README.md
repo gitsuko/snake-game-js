@@ -9,6 +9,6 @@ A simple Snake game created with HTML, CSS and JavaScript.
 - Don’t run into yourself!
 
 ## Future Updates
-- Fix movement button placement
+- ~~Fix movement button placement~~
 - ~~Add automatic movement when the game starts~~
 - ~~Add on-screen buttons for mobile play~~

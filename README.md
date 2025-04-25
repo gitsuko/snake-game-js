@@ -1,7 +1,7 @@
 # snake-game-js
 A simple Snake game created with HTML, CSS and JavaScript.
 
-**Play it here** 👉 [Live Demo](https://gitsuko.github.io/javascript-snake-game/)
+**Play it here** 👉 [Live Demo](https://gitsuko.github.io/snake-game-js/)
 
 ## 🎮 How to Play
 - Use the arrow keys to move the snake.

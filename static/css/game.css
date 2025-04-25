@@ -104,6 +104,8 @@ button:hover {
 
 .buttons-up {
     margin-bottom: -30px;
+    position: relative;
+    z-index: 10;
 }
 
 .buttons-down {

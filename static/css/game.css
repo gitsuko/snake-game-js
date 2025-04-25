@@ -109,3 +109,24 @@ button:hover {
 .buttons-down {
     margin-top: -30px;
 }
+
+/* for mobile */
+@media only screen and (max-width: 768px) {
+    .scoreBoard {
+        flex-direction: row;
+        text-align: center;
+        width: auto;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .parent-div {
+        margin: 130px auto;
+    }
+
+    .buttons {
+        display: flex;
+    }
+}

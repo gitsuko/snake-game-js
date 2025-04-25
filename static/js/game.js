@@ -147,3 +147,57 @@ function newGame() {
     snakeTail.length = 1;
     snakeTail[0] = currentBox;
 }
+
+
+// apple existence check
+function checkApple() {
+    // checking if an apple already exists
+    let hasApple = false;
+    for (var i = 1; i <= 49; i++) {
+        if (boxes[`box${i}`].style.backgroundImage.includes("apple-96.png")) {
+            hasApple = true;
+            break;
+        }
+    }
+
+    if (!hasApple) {
+        callApple();
+    }
+}
+
+// mobile buttons configuration
+function moveup() {
+    if (currentBox.id > 7) {
+        moveBox(document.getElementById((+currentBox.id - 7).toString()));
+    } else {
+        moveBox(document.getElementById((+currentBox.id + 42).toString()));
+    }
+    checkApple();
+}
+
+function moveright() {
+    if (currentBox.id % 7 !== 0) {
+        moveBox(document.getElementById((+currentBox.id + 1).toString()));
+    } else {
+        moveBox(document.getElementById((+currentBox.id - 6).toString()));
+    }
+    checkApple();
+}
+
+function moveleft() {
+    if (currentBox.id % 7 !== 1) {
+        moveBox(document.getElementById((+currentBox.id - 1).toString()));
+    } else {
+        moveBox(document.getElementById((+currentBox.id + 6).toString()));
+    }
+    checkApple();
+}
+
+function movedown() {
+    if (currentBox.id < 43) {
+        moveBox(document.getElementById((+currentBox.id + 7).toString()));
+    } else {
+        moveBox(document.getElementById((+currentBox.id - 42).toString()));
+    }
+    checkApple();
+}

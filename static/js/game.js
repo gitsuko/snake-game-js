@@ -92,6 +92,27 @@ function callApple() {
     randomApple(randomNumber);
 }
 
+// auto-movement
+let lastChoice = "ArrowRight";
+let movementInterval;
+
+function startMovement(lastChoice) {
+    if (movementInterval) {
+        clearInterval(movementInterval); // Clear any existing interval
+    }
+    movementInterval = setInterval(() => {
+        if (lastChoice === "ArrowRight") {
+            moveright();
+        } else if (lastChoice === "ArrowLeft") {
+            moveleft();
+        } else if (lastChoice === "ArrowUp") {
+            moveup();
+        } else if (lastChoice === "ArrowDown") {
+            movedown();
+        }
+
+    }, 400);
+}
 
 // waiting for user's movement
 document.addEventListener("keydown", (event) => {
@@ -104,23 +125,18 @@ document.addEventListener("keydown", (event) => {
         return;
     }
     // moving the snake by user
-    if (event.key === "ArrowUp" && currentBox.id > 7) {
-        moveBox(document.getElementById((+currentBox.id - 7).toString()));
-    } else if (event.key === "ArrowDown" && currentBox.id < 43) {
-        moveBox(document.getElementById((+currentBox.id + 7).toString()));
-    } else if (event.key === "ArrowLeft" && currentBox.id % 7 !== 1) {
-        moveBox(document.getElementById((+currentBox.id - 1).toString()));
-    } else if (event.key === "ArrowRight" && currentBox.id % 7 !== 0) {
-        moveBox(document.getElementById((+currentBox.id + 1).toString()));
-        // crossing walls conditions
-    } else if (event.key === "ArrowUp" && !(currentBox.id > 7)) {
-        moveBox(document.getElementById((+currentBox.id + 42).toString()));
-    } else if (event.key === "ArrowDown" && !(currentBox.id < 43)) {
-        moveBox(document.getElementById((+currentBox.id - 42).toString()));
-    } else if (event.key === "ArrowLeft" && !(currentBox.id % 7 !== 1)) {
-        moveBox(document.getElementById((+currentBox.id + 6).toString()));
-    } else if (event.key === "ArrowRight" && !(currentBox.id % 7 !== 0)) {
-        moveBox(document.getElementById((+currentBox.id - 6).toString()));
+    if (event.key === "ArrowUp" ) {
+        moveup();
+
+    } else if (event.key === "ArrowDown" ) {
+        movedown();
+
+    } else if (event.key === "ArrowLeft" ) {
+        moveleft();
+
+    } else if (event.key === "ArrowRight" ) {
+        moveright();
+    
     }
     // checking if an apple already exists
     let hasApple = false;
@@ -146,6 +162,8 @@ function newGame() {
     currentBox.style.backgroundColor = "#f5f5f5";
     snakeTail.length = 1;
     snakeTail[0] = currentBox;
+
+    clearInterval(movementInterval);
 }
 
 
@@ -172,6 +190,8 @@ function moveup() {
     } else {
         moveBox(document.getElementById((+currentBox.id + 42).toString()));
     }
+    startMovement("ArrowUp");
+
     checkApple();
 }
 
@@ -181,6 +201,8 @@ function moveright() {
     } else {
         moveBox(document.getElementById((+currentBox.id - 6).toString()));
     }
+    startMovement("ArrowRight");
+
     checkApple();
 }
 
@@ -190,6 +212,8 @@ function moveleft() {
     } else {
         moveBox(document.getElementById((+currentBox.id + 6).toString()));
     }
+    startMovement("ArrowLeft");
+
     checkApple();
 }
 
@@ -199,5 +223,7 @@ function movedown() {
     } else {
         moveBox(document.getElementById((+currentBox.id - 42).toString()));
     }
+    startMovement("ArrowDown");
+
     checkApple();
 }

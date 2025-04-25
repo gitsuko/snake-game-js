@@ -1,0 +1,87 @@
+::selection {
+    background-color: #f5f5f5;
+    color: #242424;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.navbar {
+    background-color: #f5f5f5;
+    overflow: hidden;
+}
+.navbar a {
+    float: left;
+    color: #242424;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+.navbar a:hover {
+    color: #242424;
+}
+.navbar a:active {
+    color: #242424;
+}
+
+body {
+    background-color: #242424;
+}
+
+div {
+    transition: all 0.15s ease;
+}
+
+.scoreBoard {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 500px;
+    margin: auto;
+}
+h1 {
+    color: #f5f5f5;
+}
+
+.parent-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    margin: 65px auto;
+    /* border: 1px solid black; */
+}
+.child-div {
+    display: flex;
+    flex-direction: row;
+    background-color: #242424;
+}
+
+.child-div div {
+    padding: 20px;
+    border: 1px solid #f5f5f5;
+}
+
+button {
+    padding: 15px 25px;
+    background-color: #f5f5f5;
+    color: #242424;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 17px;
+    transition: background-color 0.3s ease;
+    margin-top: 35px;
+
+}
+button:hover {
+    cursor: pointer;
+}
